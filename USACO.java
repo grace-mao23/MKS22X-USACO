@@ -10,6 +10,8 @@ public class USACO {
       String first = in.nextLine();
       int r = Integer.parseInt(first.substring(0,first.indexOf(" ")));
       first = first.substring(first.indexOf(" ")+1);
+      int c = Integer.parseInt(first.substring(0,first.indexOf(" ")));
+      
     } catch (FileNotFoundException e) {
       System.out.println("File not found");
     }
