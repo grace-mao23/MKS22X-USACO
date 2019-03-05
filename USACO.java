@@ -8,6 +8,8 @@ public class USACO {
       File f = new File(filename);
       Scanner in = new Scanner(f);
       String first = in.nextLine();
+      int r = Integer.parseInt(first.substring(0,first.indexOf(" ")));
+      first = first.substring(first.indexOf(" ")+1);
     } catch (FileNotFoundException e) {
       System.out.println("File not found");
     }
