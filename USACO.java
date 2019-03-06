@@ -99,21 +99,21 @@ public class USACO {
         String s = in.next();
         silve[i] = s.toCharArray();
       }
-    //  for (char[] c : silv) {
+    //  for (char[] c : silv) {char[][]
     //    System.out.println(Arrays.toString(c));
     //  }
       int r1 = in.nextInt();
       int c1 = in.nextInt();
       int r2 = in.nextInt();
       int c2 = in.nextInt();
-      silverH(r1,c1,r2,c2,steps);
+      return silverH(r1,c1,r2,c2,steps);
     } catch (FileNotFoundException e) {
       System.out.println("File not found");
     }
     return -1;
   }
 
-  private static void silverH(int r1, int c1, int r2, int c2, int steps) {
+  private static int silverH(int r1, int c1, int r2, int c2, int steps) {
     for (int i = 0; i < silv.length; i++) {
       for (int x = 0; x < silv[i].length; x++) {
         if (i == r1 && x == c1) { // START
@@ -125,6 +125,33 @@ public class USACO {
         }
       }
     }
+    for (int i = 0; i < steps; i++) {
+      for (int x = 0; x < silv.length; x++) {
+        for (int y = 0; y < silv[x].length; y++) {
+          if (silv[x][y] != -1) {
+            int sum = 0;
+            if (valid(x-1,y)) {
+              sum += silv[x-1][y];
+            }
+            if (valid(x,y+1)) {
+              sum += silv[x][y+1];
+            }
+            if (valid(x+1,y)) {
+              sum += silv[x+1][y];
+            }
+            if (valid(x,y-1)) {
+              sum += silv[x][y-1];
+            }
+            silv[x][y] = sum;
+          }
+        }
+      }
+    }
+    return silv[r2][c2];
+  }
+
+  private static boolean valid(int x, int y) {
+    return (x >= 0 && x < silv.length && y >= 0 && y < silv[x].length && silv[x][y] != -1);
   }
 
   public static void main(String[] args) {
