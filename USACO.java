@@ -23,6 +23,12 @@ public class USACO {
           board[i][x] = in.nextInt();
         }
       }
+      in.nextLine(); // getting rid of extra line
+      String[] stomps = new String[n];
+      for (int i = 0; i < n; i++) {
+        stomps[i] = in.nextLine();
+      }
+      System.out.println(Arrays.toString(stomps));
     } catch (FileNotFoundException e) {
       System.out.println("File not found");
     }
