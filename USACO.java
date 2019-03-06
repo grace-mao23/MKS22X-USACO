@@ -144,14 +144,28 @@ public class USACO {
             if (valid(x,y-1)) {
               sum += silv[x][y-1];
             }
-            silv[x][y] = sum;
+            sums[x][y] = sum;
+          }
+        /*  for (int[] iz : silv) {
+            System.out.println(Arrays.toString(iz));
+          }
+          System.out.println("@@@@@@@@@@@");
+        } */
+      }
+      for (int x = 0; x < silv.length; x++) {
+        for (int y = 0; y < silv[x].length; y++) {
+          if (silv[x][y] != -1) {
+            silv[x][y] = sums[x][y];
+            sums[x][y] = 0;
           }
         }
       }
+    /*  //// TESTING ////
       for (int[] iz : silv) {
         System.out.println(Arrays.toString(iz));
       }
       System.out.println("----------");
+      ///////////////// */
     }
     return silv[r2][c2];
   }
