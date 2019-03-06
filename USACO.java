@@ -85,12 +85,22 @@ public class USACO {
   }
 
   public static int silver(String filename) {
+    try {
+      File f = new File(filename);
+      Scanner in = new Scanner(f);
+      int n = in.nextInt();
+      int m = in.nextInt();
+      int steps = in.nextInt();
+      
+    } catch (FileNotFoundException e) {
+      System.out.println("File not found");
+    }
     return -1;
   }
 
   public static void main(String[] args) {
     USACO u = new USACO();
-    System.out.println(USACO.bronze(args[0]));
+  //  System.out.println(USACO.bronze(args[0]));
   }
 
 }
