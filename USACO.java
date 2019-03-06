@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class USACO {
-  private static int[][] bronz;
+  public static int[][] bronz;
 
   public static int bronze(String filename) {
     try {
@@ -37,12 +37,14 @@ public class USACO {
 
   private static void bronzeH(String[] stomps) {
     for (String s : stomps) {
+    //  System.out.println(s);
       int row = Integer.parseInt(s.substring(0,s.indexOf(" ")));
       s = s.substring(s.indexOf(" ")+1);
       int col = Integer.parseInt(s.substring(0,s.indexOf(" ")));
       s = s.substring(s.indexOf(" ")+1);
       int change = Integer.parseInt(s);
-      stomp(row,col,change);
+    //  System.out.println(row+","+col+","+change);
+      stomp(row-1,col-1,change);
     }
   }
 
@@ -51,19 +53,24 @@ public class USACO {
     // finding the max of the 9 slots
     for (int i = row; i < row + 3; i++) {
       for (int x = col; x < col + 3; x++) {
-        if (bronz[row][col] > max) {
-          max = bronz[row][col];
+      //  System.out.println(i+","+x+":"+bronz[i][x]);
+        if (bronz[i][x] > max) {
+          max = bronz[i][x];
         }
       }
     }
+  //  System.out.println(max);
     int newMax = max - change;
     for (int i = row; i < row + 3; i++) {
       for (int x = col; x < col + 3; x++) {
-        if (bronz[row][col] >= newMax) { // if this slot can be stomped down
-          bronz[row][col] = newMax; // stomp it down
+        if (bronz[i][x] >= newMax) { // if this slot can be stomped down
+          bronz[i][x] = newMax; // stomp it down
         } // else don't change it
       }
     }
+  /*  for (int[] i : bronz) {
+      System.out.print(Arrays.toString(i) + "\n");
+    }*/
   }
 
   public static int silver(String filename) {
@@ -72,7 +79,7 @@ public class USACO {
 
   public static void main(String[] args) {
     USACO u = new USACO();
-    System.out.println(USACO.bronze("makelake1.in"));
+    USACO.bronze("makelake1.in");
   }
 
 }
