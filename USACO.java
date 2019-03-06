@@ -2,7 +2,8 @@ import java.util.*;
 import java.io.*;
 
 public class USACO {
-  public static int[][] bronz;
+  private static int[][] bronz;
+  private static char[][] silv;
 
   public static int bronze(String filename) {
     try {
@@ -91,7 +92,14 @@ public class USACO {
       int n = in.nextInt();
       int m = in.nextInt();
       int steps = in.nextInt();
-      
+      silv = new char[n][m];
+      for (int i = 0; i < n; i++) {
+        String s = in.next();
+        silv[i] = s.toCharArray();
+      }
+      for (char[] c : silv) {
+        System.out.println(Arrays.toString(c));
+      }
     } catch (FileNotFoundException e) {
       System.out.println("File not found");
     }
@@ -100,6 +108,7 @@ public class USACO {
 
   public static void main(String[] args) {
     USACO u = new USACO();
+    USACO.silver("ctravel.1.in");
   //  System.out.println(USACO.bronze(args[0]));
   }
 
