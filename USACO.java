@@ -177,7 +177,7 @@ public class USACO {
 
   public static void main(String[] args) {
     USACO u = new USACO();
-    System.out.println(USACO.silver("ctravel.1.in"));
+    System.out.println(USACO.silver(args[0]));
   //  System.out.println(USACO.bronze(args[0]));
   }
 
