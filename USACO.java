@@ -11,7 +11,11 @@ public class USACO {
       int r = Integer.parseInt(first.substring(0,first.indexOf(" ")));
       first = first.substring(first.indexOf(" ")+1);
       int c = Integer.parseInt(first.substring(0,first.indexOf(" ")));
-      
+      first = first.substring(first.indexOf(" ")+1);
+      int e = Integer.parseInt(first.substring(0,first.indexOf(" ")));
+      first = first.substring(first.indexOf(" ")+1);
+      int n = Integer.parseInt(first);
+      System.out.println(r+","+c+","+e+","+n);
     } catch (FileNotFoundException e) {
       System.out.println("File not found");
     }
@@ -20,6 +24,11 @@ public class USACO {
 
   public static int silver(String filename) {
     return -1;
+  }
+
+  public static void main(String[] args) {
+    USACO u = new USACO();
+    System.out.println(USACO.bronze("makelake1.in"));
   }
 
 }
