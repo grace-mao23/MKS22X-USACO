@@ -91,7 +91,7 @@ public class USACO {
 
   public static void main(String[] args) {
     USACO u = new USACO();
-    USACO.bronze("makelake1.in");
+    System.out.println(USACO.bronze(args[0]));
   }
 
 }
