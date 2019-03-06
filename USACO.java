@@ -8,21 +8,20 @@ public class USACO {
     try {
       File f = new File(filename);
       Scanner in = new Scanner(f);
-      String first = in.nextLine();
-      // think about condensing later
-      int r = Integer.parseInt(first.substring(0,first.indexOf(" ")));
-      first = first.substring(first.indexOf(" ")+1);
-      int c = Integer.parseInt(first.substring(0,first.indexOf(" ")));
-      first = first.substring(first.indexOf(" ")+1);
-      int e = Integer.parseInt(first.substring(0,first.indexOf(" ")));
-      first = first.substring(first.indexOf(" ")+1);
-      int n = Integer.parseInt(first);
+      int r = in.nextInt();
+      int c = in.nextInt();
+      int e = in.nextInt();
+      int n = in.nextInt();
+    //  System.out.println(in.nextInt());
       bronz = new int[r][c];
       for (int i = 0; i < r; i++) {
         for (int x = 0; x < c; x++) {
           bronz[i][x] = in.nextInt();
         }
       }
+    //  for (int[] i : bronz) {
+      //  System.out.println(Arrays.toString(i));
+      //}
       in.nextLine(); // getting rid of extra line
       String[] stomps = new String[n];
       for (int i = 0; i < n; i++) {
