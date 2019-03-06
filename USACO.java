@@ -97,13 +97,22 @@ public class USACO {
         String s = in.next();
         silv[i] = s.toCharArray();
       }
-      for (char[] c : silv) {
-        System.out.println(Arrays.toString(c));
-      }
+    //  for (char[] c : silv) {
+    //    System.out.println(Arrays.toString(c));
+    //  }
+      int r1 = in.nextInt();
+      int c1 = in.nextInt();
+      int r2 = in.nextInt();
+      int c2 = in.nextInt();
+      silverH(r1,c1,r2,c2,steps);
     } catch (FileNotFoundException e) {
       System.out.println("File not found");
     }
     return -1;
+  }
+
+  private static void silverH(int r1, int c1, int r2, int c2, int steps) {
+    
   }
 
   public static void main(String[] args) {
