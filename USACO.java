@@ -29,6 +29,18 @@ public class USACO {
         stomps[i] = in.nextLine();
       }
       bronzeH(stomps);
+      // taking elevation + adding total depth
+      int depth = 0;
+      for (int i = 0; i < bronz.length; i++) {
+        for (int x = 0; x < bronz[i].length; x++) {
+          bronz[i][x] = e - bronz[i][x]; // subtracting from elevation
+          if (bronz[i][x] < 0) { // if negative
+            bronz[i][x] = 0; // just make it 0
+          }
+          depth += bronz[i][x];
+        }
+      }
+      return depth * 72 * 72;
     } catch (FileNotFoundException e) {
       System.out.println("File not found");
     }
