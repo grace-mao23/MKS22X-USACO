@@ -4,6 +4,7 @@ import java.io.*;
 public class USACO {
   private static int[][] bronz;
   private static int[][] silv;
+  private static int[][] sums;
   private static char[][] silve;
 
   public static int bronze(String filename) {
@@ -95,6 +96,7 @@ public class USACO {
       int steps = in.nextInt();
       silve = new char[n][m];
       silv = new int[n][m];
+      sums = new int[n][m];
       for (int i = 0; i < n; i++) {
         String s = in.next();
         silve[i] = s.toCharArray();
@@ -106,7 +108,7 @@ public class USACO {
       int c1 = in.nextInt();
       int r2 = in.nextInt();
       int c2 = in.nextInt();
-      return silverH(r1,c1,r2,c2,steps);
+      return silverH(r1-1,c1-1,r2-1,c2-1,steps);
     } catch (FileNotFoundException e) {
       System.out.println("File not found");
     }
@@ -146,6 +148,10 @@ public class USACO {
           }
         }
       }
+      for (int[] iz : silv) {
+        System.out.println(Arrays.toString(iz));
+      }
+      System.out.println("----------");
     }
     return silv[r2][c2];
   }
@@ -156,7 +162,7 @@ public class USACO {
 
   public static void main(String[] args) {
     USACO u = new USACO();
-    USACO.silver("ctravel.1.in");
+    System.out.println(USACO.silver("ctravel.1.in"));
   //  System.out.println(USACO.bronze(args[0]));
   }
 
