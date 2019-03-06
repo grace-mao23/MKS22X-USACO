@@ -3,7 +3,8 @@ import java.io.*;
 
 public class USACO {
   private static int[][] bronz;
-  private static char[][] silv;
+  private static int[][] silv;
+  private static char[][] silve;
 
   public static int bronze(String filename) {
     try {
@@ -92,10 +93,11 @@ public class USACO {
       int n = in.nextInt();
       int m = in.nextInt();
       int steps = in.nextInt();
-      silv = new char[n][m];
+      silve = new char[n][m];
+      silv = new int[n][m];
       for (int i = 0; i < n; i++) {
         String s = in.next();
-        silv[i] = s.toCharArray();
+        silve[i] = s.toCharArray();
       }
     //  for (char[] c : silv) {
     //    System.out.println(Arrays.toString(c));
@@ -112,7 +114,17 @@ public class USACO {
   }
 
   private static void silverH(int r1, int c1, int r2, int c2, int steps) {
-    
+    for (int i = 0; i < silv.length; i++) {
+      for (int x = 0; x < silv[i].length; x++) {
+        if (i == r1 && x == c1) { // START
+          silv[i][x] = 1;
+        } else if (silve[i][x] == '.') { // EMPTY SPACE
+          silv[i][x] = 0;
+        } else { // TREES
+          silv[i][x] = -1;
+        }
+      }
+    }
   }
 
   public static void main(String[] args) {
