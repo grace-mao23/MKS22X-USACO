@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class USACO {
-  private int[][] bronz;
+  private static int[][] bronz;
 
   public static int bronze(String filename) {
     try {
@@ -47,7 +47,23 @@ public class USACO {
   }
 
   private static void stomp(int row, int col, int change) {
-    
+    int max = bronz[row][col];
+    // finding the max of the 9 slots
+    for (int i = row; i < row + 3; i++) {
+      for (int x = col; x < col + 3; x++) {
+        if (bronz[row][col] > max) {
+          max = bronz[row][col];
+        }
+      }
+    }
+    int newMax = max - change;
+    for (int i = row; i < row + 3; i++) {
+      for (int x = col; x < col + 3; x++) {
+        if (bronz[row][col] >= newMax) { // if this slot can be stomped down
+          bronz[row][col] = newMax; // stomp it down
+        } // else don't change it
+      }
+    }
   }
 
   public static int silver(String filename) {
