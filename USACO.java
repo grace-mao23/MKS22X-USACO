@@ -151,12 +151,13 @@ public class USACO {
           }
           System.out.println("@@@@@@@@@@@");
         } */
+        }
       }
-      for (int x = 0; x < silv.length; x++) {
-        for (int y = 0; y < silv[x].length; y++) {
-          if (silv[x][y] != -1) {
-            silv[x][y] = sums[x][y];
-            sums[x][y] = 0;
+      for (int j = 0; j < silv.length; j++) {
+        for (int k = 0; k < silv[j].length; k++) {
+          if (silv[j][k] != -1) {
+            silv[j][k] = sums[j][k];
+            sums[j][k] = 0;
           }
         }
       }
